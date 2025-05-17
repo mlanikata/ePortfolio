@@ -67,6 +67,31 @@ a {
   position: relative;
 }
 
+.hidden{
+  display: none !important;
+}
+
+@keyframes fadeInAnimate{
+  0%{
+    opacity: 0;
+  }
+100%{
+  opacity: 1;
+}
+}
+
+@keyframes slideUpAnimate{
+  0%{
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
 /* Navigation Bar */
 .nav {
   position: fixed;
@@ -74,6 +99,7 @@ a {
   height: 80px;
   z-index: 10;
   width: 100%;
+  animation: fadeInAnimate 1000ms;
 }
 
 .nav__container {
@@ -226,6 +252,7 @@ a {
 .header__span {
   font-size: 18px;
   font-weight: 600;
+  animation: slideUpAnimate 500ms;
 }
 
 .header__title {
@@ -233,23 +260,27 @@ a {
   font-weight: 600;
   line-height: 100px;
   color: var(--primary);
+  animation: slideUpAnimate 500ms 100ms backwards;
 }
 
 .header__subtitle {
   font-size: 44px;
   font-weight: 600;
   line-height: 44px;
+  animation: slideUpAnimate 500ms 150ms backwards;
 }
 
 .header__about {
   margin-top: 8px;
   font-size: 18px;
+  animation: slideUpAnimate 500ms 200ms backwards;
 }
 
 .header__links {
   display: flex;
   gap: 16px;
   margin-top: 16px;
+  animation: slideUpAnimate 500ms 300ms backwards;
 }
 
 .header__scroll {
@@ -259,7 +290,7 @@ a {
   bottom: 32px;
   left: 50%;
   transform: translateX(-50%);
-  animation: headerScrollAnimate 1000ms infinite alternate-reverse;
+  animation: fadeInAnimate 500ms 500ms backwards, headerScrollAnimate 1000ms infinite alternate-reverse;
 }
 
 @keyframes headerScrollAnimate {
@@ -598,8 +629,14 @@ font-weight: 300;
   border-radius: 4px;
   padding: 20px;
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
-  display: none;
+  transform: translateX(200%);
+  display: flex;
   gap: 16px;
+  transition: 250ms ease;
+}
+
+.success-open .success{
+  transform: translateX(0%);
 }
 
 .success__icon{
@@ -635,7 +672,7 @@ font-weight: 300;
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  display: none;
+
 }
 
 .contact__form__loading__icon{
