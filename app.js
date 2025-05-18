@@ -25,7 +25,7 @@ async function sendEmail(event) {
     loading.classList.remove('hidden');
 
     await emailjs.sendForm(
-      'service_f4jfbvf',
+    'service_f4jfbvf',
       'template_eb0nrkt',
       event.target,
       'zyNoGk1qjZ0y3lWnH'
@@ -45,3 +45,4 @@ async function sendEmail(event) {
     );
   }
 }
+ 
